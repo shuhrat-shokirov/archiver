@@ -1,4 +1,4 @@
-package main
+package archive
 
 const expansion = ".zip"
 const wayFile = "files/"

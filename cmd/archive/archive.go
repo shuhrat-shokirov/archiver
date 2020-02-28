@@ -1,6 +1,7 @@
 package main
 
 import (
+	main2 "archive/cmd/archive"
 	zip2 "archive/zip"
 	"fmt"
 	"io"
@@ -17,7 +18,7 @@ func main() {
 
 func seqArchiver(files []string) {
 	for _, file := range files {
-		fileName := wayFile + seqArch + file + expansion
+		fileName := main2.wayFile + main2.seqArch + file + main2.expansion
 
 		archiveInZip(fileName, file)
 	}
@@ -27,7 +28,7 @@ func conArchiver(files []string) {
 	waitGroup := sync.WaitGroup{}
 	mutex := sync.Mutex{}
 	for _, file := range files {
-		fileName := wayFile + conArch + file + expansion
+		fileName := main2.wayFile + main2.conArch + file + main2.expansion
 		waitGroup.Add(1)
 		go func(wg *sync.WaitGroup, flN, fl string, mu *sync.Mutex) {
 			defer func() {
@@ -61,7 +62,7 @@ func archiveInZip(fileName, file string){
 			log.Fatalf("Can't close zip writer: %v", err)
 		}
 	}()
-	zipfile, err := os.Open(wayFile + file)
+	zipfile, err := os.Open(main2.wayFile + file)
 	if err != nil {
 		log.Fatalf("Can't open file: %v", err)
 	}

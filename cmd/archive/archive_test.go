@@ -1,10 +1,13 @@
-package main
+package archive
 
-import "testing"
+import (
+	"archive/cmd/archive"
+	"testing"
+)
 
 func Benchmark_seqArchiver_many(b *testing.B) {
 	for i:=0; i< b.N; i++{
-		seqArchiver([]string{
+		main.seqArchiver([]string{
 			"1.txt",
 			"2.txt",
 			"1.txt",
@@ -31,14 +34,14 @@ func Benchmark_seqArchiver_many(b *testing.B) {
 
 func Benchmark_seqArchiver_one(b *testing.B) {
 	for i:=0; i< b.N; i++{
-		seqArchiver([]string{
+		main.seqArchiver([]string{
 			"1.txt",
 		})
 	}
 }
 func Benchmark_conArchiver_many(b *testing.B) {
 	for i:=0; i< b.N; i++{
-		seqArchiver([]string{
+		main.seqArchiver([]string{
 			"1.txt",
 			"2.txt",
 			"1.txt",
@@ -65,7 +68,7 @@ func Benchmark_conArchiver_many(b *testing.B) {
 
 func Benchmark_conArchiver_one(b *testing.B) {
 	for i:=0; i< b.N; i++{
-		seqArchiver([]string{
+		main.seqArchiver([]string{
 			"1.txt",
 		})
 	}
