@@ -1,3 +1,3 @@
-module github.com/shuhrat-shokirov/archiver
+module archiver
 
 go 1.13
